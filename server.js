@@ -10,6 +10,9 @@ client.on("ready", async () => {
   client.user.setActivity(`New Members!`, { type: "WATCHING" });
 });
 
+const keepAlive = require('./alive.js')
+keepAlive();
+
 client.on("guildMemberAdd", async member => {
   let Channel = WelChan
   if (!Channel) return;
