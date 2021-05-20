@@ -20,7 +20,7 @@ client.on("guildMemberAdd", async member => {
   if (member.user.username.length > 25) member.user.username = member.user.username.slice(0, 25) + "...";
   if (member.guild.name.length > 15) member.guild.name = member.guild.name.slice(0, 15) + "...";
   
-  let Msg = WelMsg.replace("<user>", `<@${message.author.id}>`) || `**<@${message.author.id}> just joined!**`
+  let Msg = WelMsg.replace("<user>", `<@${member.user.id}>`) || `**<@${member.user.id}> just joined!**`
   let Welcomed = new canvas.Welcome();
   let Image = await Welcomed
   .setUsername(member.user.username)
@@ -42,7 +42,7 @@ client.on("guildMemberRemove", async member => {
   if (member.user.username.length > 25) member.user.username = member.user.username.slice(0, 25) + "...";
   if (member.guild.name.length > 15) member.guild.name = member.guild.name.slice(0, 15) + "...";
   
-  let Msg = LeaveMsg.replace("<user>", message.author.tag) || `**${message.author.tag} just left the server :(**`
+  let Msg = LeaveMsg.replace("<user>", member.user.tag) || `**${member.user.tag} just left the server :(**`
   let Leaved = new canvas.Goodbye();
   let Image = await Leaved
   .setUsername(member.user.username)
